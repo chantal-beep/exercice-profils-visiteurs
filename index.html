@@ -7,115 +7,135 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
-      background: #f9f9f9;
-      color: #333;
+      background: #f7fafc;
+      margin: 0;
+      padding: 20px;
+      color: #0f172a;
     }
-    h2 {
+
+    h1 {
       text-align: center;
-      color: #003366;
+      color: #1f4e79;
     }
-    p {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      padding: 10px;
+      gap: 20px;
     }
+
     .card {
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
-      text-align: center;
-      transition: transform 0.2s ease;
+      width: 300px;
+      flex: 1 1 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 20px; /* Ajout pour espacement mobile */
     }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .card h3 {
-      margin-bottom: 10px;
-      color: #003366;
-    }
-    .card input {
-      width: 90%;
-      padding: 8px;
+
+    .card h2 {
+      font-size: 18px;
+      color: #1f4e79;
       margin-bottom: 12px;
+    }
+
+    .card p {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 80px;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 8px;
+      padding: 10px;
+      font-size: 16px; /* Texte plus lisible sur mobile */
+      resize: vertical;
     }
-    .card button {
-      background: #003366;
-      color: #fff;
-      border: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    .card button:hover {
-      background: #0055aa;
-    }
-    .solution {
-      display: none;
+
+    button {
       margin-top: 10px;
-      color: green;
-      font-style: italic;
+      padding: 10px 15px;
+      background: #1f4e79;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #16395c;
+    }
+
+    .response {
+      margin-top: 12px;
+      padding: 12px;
+      background: #eef6ff;
+      border-left: 4px solid #f2c811;
+      border-radius: 8px;
+      display: none;
+      font-size: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .card {
+        width: 100%; /* S’adapte totalement sur mobile */
+      }
     }
   </style>
 </head>
 <body>
-  <h2>Exercice : Comment réagir face à différents profils de visiteurs ?</h2>
-  <p>Écrivez d’abord votre idée, puis cliquez sur <strong>Voir la solution</strong> pour comparer avec la bonne attitude.</p>
 
-  <div class="cards-container">
+  <h1>Exercice — Identifier les profils de visiteurs</h1>
+  <div class="container">
     <div class="card">
-      <h3>Un visiteur agressif</h3>
-      <input type="text" placeholder="Votre idée...">
-      <button onclick="toggleSolution(this)">Voir la solution</button>
-      <p class="solution">Restez calme, poli et professionnel. Ne pas hausser le ton.</p>
+      <h2>Visiteur 1</h2>
+      <p>Un visiteur arrive en parlant très vite, sans écouter vos réponses.</p>
+      <textarea placeholder="Écrivez votre analyse..."></textarea>
+      <button onclick="showResponse(this)">Voir la solution</button>
+      <div class="response">C’est le profil « Bavard » : tu dois recadrer poliment et reformuler pour garder le contrôle.</div>
     </div>
+
     <div class="card">
-      <h3>Un visiteur autoritaire</h3>
-      <input type="text" placeholder="Votre idée...">
-      <button onclick="toggleSolution(this)">Voir la solution</button>
-      <p class="solution">Affirmez-vous avec diplomatie et fixez un cadre clair.</p>
+      <h2>Visiteur 2</h2>
+      <p>Un visiteur reste froid, donne peu d’informations et semble méfiant.</p>
+      <textarea placeholder="Écrivez votre analyse..."></textarea>
+      <button onclick="showResponse(this)">Voir la solution</button>
+      <div class="response">C’est le profil « Méfiant » : tu dois rassurer, poser des questions ouvertes, et montrer ton sérieux.</div>
     </div>
+
     <div class="card">
-      <h3>Un visiteur impoli</h3>
-      <input type="text" placeholder="Votre idée...">
-      <button onclick="toggleSolution(this)">Voir la solution</button>
-      <p class="solution">Ignorez l’impolitesse et maintenez une attitude courtoise.</p>
-    </div>
-    <div class="card">
-      <h3>Un visiteur indécis</h3>
-      <input type="text" placeholder="Votre idée...">
-      <button onclick="toggleSolution(this)">Voir la solution</button>
-      <p class="solution">Aidez-le à clarifier ses besoins et proposez des options.</p>
-    </div>
-    <div class="card">
-      <h3>Un visiteur bavard</h3>
-      <input type="text" placeholder="Votre idée...">
-      <button onclick="toggleSolution(this)">Voir la solution</button>
-      <p class="solution">Écoutez puis ramenez poliment la conversation sur l’essentiel.</p>
-    </div>
-    <div class="card">
-      <h3>Un visiteur impatient</h3>
-      <input type="text" placeholder="Votre idée...">
-      <button onclick="toggleSolution(this)">Voir la solution</button>
-      <p class="solution">Rassurez-le et traitez sa demande le plus rapidement possible.</p>
+      <h2>Visiteur 3</h2>
+      <p>Un visiteur arrive énervé, hausse le ton et tape du poing sur le comptoir.</p>
+      <textarea placeholder="Écrivez votre analyse..."></textarea>
+      <button onclick="showResponse(this)">Voir la solution</button>
+      <div class="response">C’est le profil « Agressif » : tu dois rester calme, montrer de l’écoute, et éviter de répondre sur le même ton.</div>
     </div>
   </div>
 
   <script>
-    function toggleSolution(button) {
-      const solution = button.nextElementSibling;
-      solution.style.display = solution.style.display === "block" ? "none" : "block";
+    function showResponse(button) {
+      const textarea = button.previousElementSibling;
+      if (textarea.value.trim() === "") {
+        alert("Merci d’écrire votre analyse avant de voir la solution !");
+        return;
+      }
+      const response = button.nextElementSibling;
+      response.style.display = "block";
     }
   </script>
+
 </body>
 </html>
