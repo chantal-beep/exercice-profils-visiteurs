@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercice — Profils de visiteurs</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h2 {
+      text-align: center;
+      color: #003366;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .cards-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-content: center;
+      padding: 10px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card h3 {
+      margin-bottom: 10px;
+      color: #003366;
+    }
+    .card input {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .card button {
+      background: #003366;
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .card button:hover {
+      background: #0055aa;
+    }
+    .solution {
+      display: none;
+      margin-top: 10px;
+      color: green;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h2>Exercice : Comment réagir face à différents profils de visiteurs ?</h2>
+  <p>Écrivez d’abord votre idée, puis cliquez sur <strong>Voir la solution</strong> pour comparer avec la bonne attitude.</p>
+
+  <div class="cards-container">
+    <div class="card">
+      <h3>Un visiteur agressif</h3>
+      <input type="text" placeholder="Votre idée...">
+      <button onclick="toggleSolution(this)">Voir la solution</button>
+      <p class="solution">Restez calme, poli et professionnel. Ne pas hausser le ton.</p>
+    </div>
+    <div class="card">
+      <h3>Un visiteur autoritaire</h3>
+      <input type="text" placeholder="Votre idée...">
+      <button onclick="toggleSolution(this)">Voir la solution</button>
+      <p class="solution">Affirmez-vous avec diplomatie et fixez un cadre clair.</p>
+    </div>
+    <div class="card">
+      <h3>Un visiteur impoli</h3>
+      <input type="text" placeholder="Votre idée...">
+      <button onclick="toggleSolution(this)">Voir la solution</button>
+      <p class="solution">Ignorez l’impolitesse et maintenez une attitude courtoise.</p>
+    </div>
+    <div class="card">
+      <h3>Un visiteur indécis</h3>
+      <input type="text" placeholder="Votre idée...">
+      <button onclick="toggleSolution(this)">Voir la solution</button>
+      <p class="solution">Aidez-le à clarifier ses besoins et proposez des options.</p>
+    </div>
+    <div class="card">
+      <h3>Un visiteur bavard</h3>
+      <input type="text" placeholder="Votre idée...">
+      <button onclick="toggleSolution(this)">Voir la solution</button>
+      <p class="solution">Écoutez puis ramenez poliment la conversation sur l’essentiel.</p>
+    </div>
+    <div class="card">
+      <h3>Un visiteur impatient</h3>
+      <input type="text" placeholder="Votre idée...">
+      <button onclick="toggleSolution(this)">Voir la solution</button>
+      <p class="solution">Rassurez-le et traitez sa demande le plus rapidement possible.</p>
+    </div>
+  </div>
+
+  <script>
+    function toggleSolution(button) {
+      const solution = button.nextElementSibling;
+      solution.style.display = solution.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
